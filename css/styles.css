@@ -362,3 +362,25 @@ a {
       0px 0px 0px 0px #66b248;
   }
 }
+
+.topText {
+  z-index: 44;
+}
+
+/* MEDIA QUERY */
+
+@media screen and (max-width: 520px) {
+  .game {
+    scale: 1;
+  }
+  .scoreboard {
+    scale: 0.75;
+    gap: 2rem;
+  }
+
+  .winnerScreen {
+    flex-direction: column;
+    scale: 1;
+    gap: 1rem;
+  }
+}

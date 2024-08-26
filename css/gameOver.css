@@ -55,3 +55,20 @@
 .title {
   font-size: 4rem;
 }
+
+@media screen and (max-width: 520px) {
+  #gameOver {
+    margin: auto;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+
+  #gameOver img {
+    width: 90vw;
+  }
+}
