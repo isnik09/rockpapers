@@ -5,6 +5,13 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+
+  user-select: none;
 }
 
 :root {
@@ -27,11 +34,13 @@ body {
   display: flex;
   height: 100vh;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .scoreboard {
   color: var(--white);
+  min-width: 100%;
   padding: 1rem;
   border-radius: 1rem;
   border: 4px solid var(--white);
@@ -158,6 +167,13 @@ body {
   border-radius: 50%;
 }
 
+.option:hover {
+  cursor: pointer;
+  scale: 1.1;
+  box-shadow: 0px 0px 0px 15px #289a27, 0px 0px 0px 30px #32a62f,
+    0px 0px 0px 45px #66b248;
+}
+
 .rulesSection {
   align-self: flex-end;
 }
@@ -220,6 +236,72 @@ li {
   -o-border-radius: 50%;
 }
 
+a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+#confetti {
+  height: 100%;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: -1;
+}
+
 .hidden {
   display: none;
+}
+
+.winner {
+  box-shadow: 0px 0px 0px 35px #289a27, 0px 0px 0px 55px #32a62f,
+    0px 0px 0px 80px #66b248;
+}
+
+.computerSection,
+.playerSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  color: var(--white);
+  justify-content: center;
+  align-items: center;
+  p {
+    z-index: 2;
+  }
+}
+
+.playAgain {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #6b6b6b;
+  border: none;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+
+.winnerScreen {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-around;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--white);
+}
+
+.bottomBtns {
+  align-self: flex-end;
+  display: flex;
+  gap: 1rem;
 }

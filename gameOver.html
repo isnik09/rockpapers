@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Game Over</title>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.11.0.js"
+    ></script>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/gameOver.css" />
+  </head>
+  <body>
+    <div id="gameOver">
+      <img
+        class="slide-in-bck-center"
+        src="./assets/icons/cup-stars.svg"
+        alt=""
+      />
+      <h1>HURRAY!!</h1>
+      <h2>YOU WON THE GAME</h2>
+    </div>
+
+    <a href="./index.html"> <button class="playAgain">PLAY AGAIN</button></a>
+
+    <div id="confetti"></div>
+
+    <audio autoplay>
+      <source src="./assets/sounds/tadaa.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script src="./js/confetti.js"></script>
+  </body>
+</html>

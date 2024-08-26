@@ -6,9 +6,8 @@
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
-
   <body>
-    <div class="scoreboard">
+    <div id="scoreboard" class="scoreboard">
       <div class="title">
         <h1>ROCK</h1>
         <h1>PAPER</h1>
@@ -32,9 +31,15 @@
       <div class="triangle"></div>
       <div class="icons">
         <div class="top">
-          <img class="stone option" src="./assets/icons/rock.svg" alt="rock" />
+          <img
+            id="stone"
+            class="stone option"
+            src="./assets/icons/rock.svg"
+            alt="rock"
+          />
 
           <img
+            id="scissor"
             class="scissor option"
             src="./assets/icons/scissors.svg"
             alt="scissor"
@@ -42,6 +47,7 @@
         </div>
         <div class="bottom">
           <img
+            id="paper"
             class="paper option"
             src="./assets/icons/paper.svg"
             alt="paper"
@@ -50,9 +56,75 @@
       </div>
     </div>
 
-    <div class="rulesSection">
-      <div class="rulesPopup hidden">
-        <img class="closeBtn" src="./assets/icons/closeBtn.svg" alt="" />
+    <div id="winnerScreen" class="hidden">
+      <div class="winnerScreen">
+        <div class="playerSection">
+          <p>YOU PICKED</p>
+
+          <img
+            id="playerScissor"
+            class="scissor option"
+            src="./assets/icons/scissors.svg"
+            alt="scissor"
+          />
+
+          <img
+            id="playerStone"
+            class="stone option"
+            src="./assets/icons/rock.svg"
+            alt="stone"
+          />
+
+          <img
+            id="playerPaper"
+            class="paper option"
+            src="./assets/icons/paper.svg"
+            alt="stone"
+          />
+        </div>
+
+        <div class="message">
+          <div class="">
+            <h1>YOU WIN</h1>
+            <h2>AGAINST PC</h2>
+          </div>
+          <button class="playAgain">PLAY AGAIN</button>
+        </div>
+
+        <div class="computerSection">
+          <p>PC PICKED</p>
+          <img
+            id="computerScissor"
+            class="scissor option"
+            src="./assets/icons/scissors.svg"
+            alt="scissor"
+          />
+
+          <img
+            id="computerStone"
+            class="stone option"
+            src="./assets/icons/rock.svg"
+            alt="stone"
+          />
+
+          <img
+            id="computerPaper"
+            class="paper option"
+            src="./assets/icons/paper.svg"
+            alt="stone"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div id="rulesSection ">
+      <div id="rulesPopup" class="hidden rulesPopup">
+        <img
+          id="closeBtn"
+          class="closeBtn"
+          src="./assets/icons/closeBtn.svg"
+          alt=""
+        />
         <h1>Game Rules</h1>
         <ul>
           <li>
@@ -82,10 +154,16 @@
           </li>
         </ul>
       </div>
-
-      <div class="rules">
+    </div>
+    <div class="bottomBtns">
+      <div id="rulesBtn" class="rules">
         <h3>RULES</h3>
       </div>
+      <div id="nextBtn" class="next rules hidden">
+        <a href="./gameOver.html"><h3>NEXT</h3></a>
+      </div>
     </div>
+
+    <script src="./js/index.js"></script>
   </body>
 </html>
