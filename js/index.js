@@ -59,9 +59,7 @@ function playGame(playerChoice) {
   }
 
   updateScores();
-
   showWinnerScreen(playerChoice, computerChoice, winner);
-
   saveScores();
 }
 
@@ -117,28 +115,98 @@ function showResetPrompt() {
   }
 }
 
-// function showWinnerScreen(playerChoice, computerChoice, winner) {
-//   winnerScreen.classList.remove("hidden");
-//   playerSectionImage.src = `./assets/icons/${playerChoice}.svg`;
-//   computerSectionImage.src = `./assets/icons/${computerChoice}.svg`;
+function showWinnerScreen(playerChoice, computerChoice, winner) {
+  console.log(playerChoice, computerChoice, winner);
+  const playerWin = document.getElementById("playerWin");
+  const computerWin = document.getElementById("computerWin");
+  const tied = document.getElementById("tied");
 
-//   if (winner === "You win!") {
-//     winnerMessage.textContent = "YOU WIN";
-//   } else if (winner === "Computer wins!") {
-//     winnerMessage.textContent = "COMPUTER WINS";
-//   } else {
-//     winnerMessage.textContent = "IT'S A TIE";
-//   }
+  switch (winner) {
+    case "You win!":
+      playerWin.classList.remove("hidden");
+      computerWin.classList.add("hidden");
+      tied.classList.add("hidden");
+      break;
+    case "Computer wins!":
+      playerWin.classList.add("hidden");
+      computerWin.classList.remove("hidden");
+      tied.classList.add("hidden");
+      break;
+    case "It's a tie!":
+      playerWin.classList.add("hidden");
+      computerWin.classList.add("hidden");
+      tied.classList.remove("hidden");
+      break;
+  }
 
-//   // Show only the selected images
-//   playerScissor.style.display = playerChoice === "scissor" ? "block" : "none";
-//   playerStone.style.display = playerChoice === "stone" ? "block" : "none";
-//   playerPaper.style.display = playerChoice === "paper" ? "block" : "none";
-//   computerScissor.style.display =
-//     computerChoice === "scissor" ? "block" : "none";
-//   computerStone.style.display = computerChoice === "stone" ? "block" : "none";
-//   computerPaper.style.display = computerChoice === "paper" ? "block" : "none";
-// }
+  const playerChooseStone = document.getElementById("playerStone");
+  const playerChoosePaper = document.getElementById("playerPaper");
+  const playerChooseScissor = document.getElementById("playerScissor");
+
+  const computerChooseStone = document.getElementById("computerStone");
+  const computerChoosePaper = document.getElementById("computerPaper");
+  const computerChooseScissor = document.getElementById("computerScissor");
+
+  switch (playerChoice) {
+    case "stone":
+      playerChooseStone.classList.remove("hidden");
+      playerChoosePaper.classList.add("hidden");
+      playerChooseScissor.classList.add("hidden");
+      break;
+    case "paper":
+      playerChooseStone.classList.add("hidden");
+      playerChoosePaper.classList.remove("hidden");
+      playerChooseScissor.classList.add("hidden");
+      break;
+    case "scissor":
+      playerChooseStone.classList.add("hidden");
+      playerChoosePaper.classList.add("hidden");
+      playerChooseScissor.classList.remove("hidden");
+      break;
+  }
+
+  switch (computerChoice) {
+    case "stone":
+      computerChooseStone.classList.remove("hidden");
+      computerChoosePaper.classList.add("hidden");
+      computerChooseScissor.classList.add("hidden");
+      break;
+    case "paper":
+      computerChooseStone.classList.add("hidden");
+      computerChoosePaper.classList.remove("hidden");
+      computerChooseScissor.classList.add("hidden");
+      break;
+    case "scissor":
+      computerChooseStone.classList.add("hidden");
+      computerChoosePaper.classList.add("hidden");
+      computerChooseScissor.classList.remove("hidden");
+      break;
+  }
+  const lostSound = new Audio("./assets/sounds/lost.mp3");
+  playerChooseStone.classList.remove("winnerAnimation");
+  playerChooseScissor.classList.remove("winnerAnimation");
+  playerChoosePaper.classList.remove("winnerAnimation");
+  computerChooseStone.classList.remove("winnerAnimation");
+  computerChooseScissor.classList.remove("winnerAnimation");
+  computerChoosePaper.classList.remove("winnerAnimation");
+  switch (winner) {
+    case "You win!":
+      playerChooseStone.classList.add("winnerAnimation");
+      playerChooseScissor.classList.add("winnerAnimation");
+      playerChoosePaper.classList.add("winnerAnimation");
+      break;
+    case "Computer wins!":
+      lostSound.play();
+      computerChooseStone.classList.add("winnerAnimation");
+      computerChooseScissor.classList.add("winnerAnimation");
+      computerChoosePaper.classList.add("winnerAnimation");
+      break;
+    case "It's a tie!":
+      break;
+  }
+
+  toggleGame();
+}
 
 loadScores();
 stone.addEventListener("click", () => playGame("stone"));
@@ -146,3 +214,29 @@ paper.addEventListener("click", () => playGame("paper"));
 scissor.addEventListener("click", () => playGame("scissor"));
 const scoreboard = document.getElementById("scoreboard");
 scoreboard.addEventListener("click", showResetPrompt);
+
+const winnerPlayAgainBtn = document.getElementById("winnerScreenPlayAgain");
+const gameDiv = document.getElementById("game");
+const winnerDiv = document.getElementById("winnerScreen");
+
+winnerPlayAgainBtn.addEventListener("click", toggleWinnerScreen);
+
+function toggleGame() {
+  if (gameDiv.classList.contains("hidden")) {
+    gameDiv.classList.remove("hidden");
+    winnerDiv.classList.add("hidden");
+  } else {
+    gameDiv.classList.add("hidden");
+    winnerDiv.classList.remove("hidden");
+  }
+}
+function toggleWinnerScreen() {
+  if (winnerDiv.classList.contains("hidden")) {
+    winnerDiv.classList.remove("hidden");
+    gameDiv.classList.add("hidden");
+  } else {
+    winnerDiv.classList.add("hidden");
+    gameDiv.classList.remove("hidden");
+  }
+  nextBtn.classList.add("hidden");
+}

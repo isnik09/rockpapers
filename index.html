@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/icons/cup.svg"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
@@ -27,20 +32,20 @@
       </div>
     </div>
 
-    <div class="game">
+    <div id="game" class="game">
       <div class="triangle"></div>
       <div class="icons">
         <div class="top">
           <img
             id="stone"
-            class="stone option"
+            class="stone option gameOption"
             src="./assets/icons/rock.svg"
             alt="rock"
           />
 
           <img
             id="scissor"
-            class="scissor option"
+            class="scissor option gameOption"
             src="./assets/icons/scissors.svg"
             alt="scissor"
           />
@@ -48,7 +53,7 @@
         <div class="bottom">
           <img
             id="paper"
-            class="paper option"
+            class="paper option gameOption"
             src="./assets/icons/paper.svg"
             alt="paper"
           />
@@ -60,21 +65,18 @@
       <div class="winnerScreen">
         <div class="playerSection">
           <p>YOU PICKED</p>
-
           <img
             id="playerScissor"
             class="scissor option"
             src="./assets/icons/scissors.svg"
             alt="scissor"
           />
-
           <img
             id="playerStone"
             class="stone option"
             src="./assets/icons/rock.svg"
             alt="stone"
           />
-
           <img
             id="playerPaper"
             class="paper option"
@@ -84,11 +86,23 @@
         </div>
 
         <div class="message">
-          <div class="">
+          <div id="computerWin" class="hidden">
+            <h1>YOU LOST</h1>
+            <h2>AGAINST PC</h2>
+          </div>
+
+          <div id="playerWin" class="hidden">
             <h1>YOU WIN</h1>
             <h2>AGAINST PC</h2>
           </div>
-          <button class="playAgain">PLAY AGAIN</button>
+
+          <div id="tied" class="hidden">
+            <h1>TIED UP</h1>
+          </div>
+
+          <button id="winnerScreenPlayAgain" class="playAgain">
+            PLAY AGAIN
+          </button>
         </div>
 
         <div class="computerSection">
@@ -163,7 +177,6 @@
         <a href="./gameOver.html"><h3>NEXT</h3></a>
       </div>
     </div>
-
     <script src="./js/index.js"></script>
   </body>
 </html>

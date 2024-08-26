@@ -42,9 +42,16 @@
 }
 
 #gameOver {
+  margin: auto;
   display: flex;
+  gap: 2rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   color: white;
+}
+
+.title {
+  font-size: 4rem;
 }
